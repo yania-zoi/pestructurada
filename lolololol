@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i,j;
+    int N=3;
+    int M=3;
+    int jugador1 [N][M];
+    int jugador2 [N][M];
+    int bote1 = 111;
+    int bote2 = 222;
+    for(i=0;i<N;i++){
+        for(j=0;j<M;j++){
+          jugador1[i][j]=0;
+          jugador2[i][j]=0;
+        }
+    }
+    printf("ingrese coordenadas del barco 1: \n");
+    scanf("%d%d", &i,&j);
+    int jugador1[i][j] = bote1;
+    
+    printf("ingrese coordenadas del barco 2 parte 1: \n");
+    scanf("%d%d", &i,&j);
+    int jugador2[i][j] = bote2;
+    
+    printf("ingrese coordenadas del barco 2 parte 1: \n");
+    scanf("%d%d", &i,&j);
+    int jugador2[i][j] = bote2;
+    
+    return 0;
+}
