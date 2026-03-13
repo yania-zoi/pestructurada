@@ -1,64 +1,32 @@
 #include <stdio.h>
-int main() {
-    int tablero[5][5];
-    int fila, columna, encontrados = 0;
-// Inicializar tablero
-    for(int i = 0; i < 5; i++) {
-        for(int j = 0; j < 5; j++) {
-        tablero[i][j] = 0;
-        }
+#include <string.h>
+
+int main()
+{
+    int i, j;
+    int longitud;
+    char alumno1[16] = "Antonio perez";
+    printf("%s\n", alumno1);
+
+    char alumno2[16] = "Ergar sainz";
+    printf("%s", alumno2);
+
+    fgets(alumno1, sizeof(alumno1), stdin);
+    fgets(alumno2, sizeof(alumno2), stdin);
+
+    char nombres[5][16];
+
+    for(i=0;i<3;i++){
+        printf("ingrese nombre %d: ", i+1);
+        fgets(nombres[i], sizeof(nombres[i]), stdin);
+
+        nombres[i][strcspn(nombres[i], "\n")] = 0;
+
+        longitud = strlen(nombres[i]);
+        printf("la longitud de %s es %d \n", nombres[i], longitud);
     }
 
-// Colocar barcos manualmente
-    tablero[1][2] = 1;
-    tablero[3][4] = 1;
-    tablero[0][0] = 1;
 
-// Mostrar tablero inicial
-    for(int i = 0; i < 5; i++) {
-        for(int j = 0; j < 5; j++) {
-            printf("~ ");
-        }
-        printf("\n");
-    }
-
-// Pedir disparo
-    do{
-        printf("\nFila: ");
-        scanf("%d", &fila);
-        printf("Columna: ");
-        scanf("%d", &columna);
-
-// AQUÍ DEBES COMPLETAR:
-// evaluar si hay barco o agua
-        if(tablero[fila][columna]==1){
-            printf("impactaste un barco!\n");
-            encontrados ++;
-            tablero[fila][columna]=3;
-        }
-        else{
-            tablero[fila][columna]= 2;
-            printf("disparo fallido!\n");
-        }
-
-// imprimir nuevo tablero luego del disparo
-        for(int i = 0; i < 5; i++) {
-            for(int j = 0; j < 5; j++) {
-                if(tablero[i][j] == 0 || tablero[i][j] == 1){
-                        printf("~ ");
-                }
-
-                else if(tablero[i][j] == 2){
-                        printf(". ");
-                }
-
-                else if(tablero[i][j] == 3){
-                        printf("x ");
-                }
-            }
-        printf("\n");
-        }
-
-    }while(encontrados<3);
     return 0;
+
 }
