@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void f_triple(int *v){
+    *v = (*v)*3;
+    printf("el triple del numero es: %d ", *v);
+}
+
+void f_doble(int v){
+    v = v*2;
+    printf("el doble del numero es: %d", v);
+}
+
+int main()
+{
+    int a;
+    printf("dame un no del 1 al 100 ");
+    scanf("%d", &a);
+    f_doble(a);
+    printf("\nel valor de a es %d\n", a);
+    f_triple(&a);
+    printf("\nel valor de a es %d\n", a);
+
+    int *v;
+    v = (int*)malloc(5*sizeof(int));
+    return 0;
+}
+
+/*int main(){
+    int x = 5;
+    int *p;
+    p=&x;
+    printf("%d\n", x);
+    printf("%d\n", p);
+    printf("%d\n", *p);
+return 0;
+}*/
